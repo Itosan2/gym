@@ -8,7 +8,6 @@ import ExerciseData from "./ExerciseData";
 
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState("");
-  // const [exercises, setExercises] = useState([]);
   const [bodyParts, setBodyParts] = useState([]);
   const url = "https://exercisedb.p.rapidapi.com/exercises";
 
@@ -23,7 +22,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
       setBodyParts(["all", ...bodyPartsData]);
     };
     // fetchExercisesData();
-    // setBodyParts(dataDb);
   }, []);
 
   useEffect(() => {
@@ -34,12 +32,12 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
   const handleSearch = async () => {
     if (search) {
-      const exercisesData = ExerciseData;
+      // const exercisesData = ExerciseData;
       const element = document.getElementById("exercises");
-      // const exercisesData = await fetchData(
-      //   "https://exercisedb.p.rapidapi.com/exercises",
-      //   exerciseOptions
-      // );
+      const exercisesData = await fetchData(
+        "https://exercisedb.p.rapidapi.com/exercises",
+        exerciseOptions
+      );
 
       const searchedExercises = exercisesData.filter(
         (exercise) =>
@@ -60,6 +58,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
+      <h2>New image</h2>
+      <img src="https://d205bpvrqc9yn1.cloudfront.net/0001.gif" alt="" />
       <Typography
         fontWeight={700}
         sx={{ fontSize: { lg: "44px", xs: "30px" } }}

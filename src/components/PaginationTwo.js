@@ -63,11 +63,12 @@ function Pagination({ pages, setCurrentPage, paginate }) {
   return (
     <div className="pagination-container">
       <a
-        href="#!"
+        // href="#!" //-- removed as it does not work with CreateHashRouter
         className={`${currentButton === 1 ? "disabled" : ""}`}
-        onClick={() =>
-          setCurrentButton((prev) => (prev <= 1 ? prev : prev - 1))
-        }
+        onClick={() => {
+          setCurrentButton((prev) => (prev <= 1 ? prev : prev - 1));
+          paginate(currentButton);
+        }}
       >
         Prev
       </a>
@@ -75,7 +76,6 @@ function Pagination({ pages, setCurrentPage, paginate }) {
       {arrOfCurrButtons.map((item, index) => {
         return (
           <a
-            href="#!"
             key={index}
             className={`${currentButton === item ? "active" : ""}`}
             onClick={() => {
@@ -89,15 +89,15 @@ function Pagination({ pages, setCurrentPage, paginate }) {
       })}
 
       <a
-        href="#!"
         className={`${
           currentButton === numberOfPages.length ? "disabled" : ""
         }`}
-        onClick={() =>
+        onClick={() => {
           setCurrentButton((prev) =>
             prev >= numberOfPages.length ? prev : prev + 1
-          )
-        }
+          );
+          paginate(currentButton);
+        }}
       >
         Next
       </a>

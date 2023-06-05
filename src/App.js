@@ -3,6 +3,7 @@ import {
   Route,
   RouterProvider,
   createBrowserRouter,
+  createHashRouter,
   createRoutesFromElements,
 } from "react-router-dom";
 import { Box } from "@mui/material";
@@ -12,11 +13,11 @@ import ExerciseDetail from "./pages/ExerciseDetail";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="/exercise/:id" element={<ExerciseDetail />} />
+      <Route path="exercise:id" element={<ExerciseDetail />} />
     </Route>
   )
 );
