@@ -5,7 +5,6 @@
   width: 100%;
   font-weight: 600;
   font-size: 1rem;
-  /* border: 2px solid red; */
 }
 
 .pagination-container ul {
@@ -40,7 +39,6 @@
 
 .pagination-item.disabled {
   display: none;
-  /* cursor: no-drop; */
 }
 
 .pagination-item:hover:not(.active) {
